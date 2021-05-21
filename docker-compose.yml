@@ -5,5 +5,5 @@ services:
         volumes:
             - ./notebook/:/tmp/working
         ports:
-            - 8888:8888
+            - 80:8888
         command: jupyter notebook --ip=0.0.0.0 --allow-root --no-browser
