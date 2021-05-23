@@ -1,4 +1,4 @@
-FROM gcr.io/kaggle-images/python:v56
+FROM gcr.io/kaggle-images/python:latest
 
 RUN apt-get update
 RUN apt-get install vim -y
