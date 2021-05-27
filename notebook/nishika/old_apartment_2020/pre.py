@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import japanize_matplotlib 
 
+
 def data_pre(df):
     all_null_list = []
 
@@ -65,6 +66,8 @@ def data_pre(df):
     df = pd.merge(df.reset_index(), area, on="場所").set_index("ID")
     
     df = df.drop(["場所"], axis=1)
+    
+    
 
     for col in ["都道府県名", "市区町村名", "地区名", "最寄駅：名称", "間取り", "建物の構造", "用途", "今後の利用目的", "都市計画", "改装", "取引の事情等"]:
         df[col] = df[col].astype("category")
