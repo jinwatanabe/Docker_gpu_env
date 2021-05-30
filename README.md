@@ -6,7 +6,6 @@ Docker, gitを利用しています。
 - `notebook/dataset/`.....データセットを保存しているディレクトリ。このディレクトリ下のファイルはGitにPushされません。
 - `notebook/kaggle/`.....Kaggleで利用したNotebookを入れるフォルダです。
 - `notebook/Nishika/`....Nishikaで利用したNotebookを入れるフォルダです。
-
 #  ライブラリの追加
 
 ライブラリを永続的にインストールする場合、libraries/Dockerfileにインストールするライブラリを追加してください。
@@ -33,3 +32,5 @@ git clone https://github.com/jinwatanabe/data_analysis.git
 Webブラウザを開き`localhost`にアクセスする。
 
 ![bandicam 2021-05-28 21-30-20-860](https://user-images.githubusercontent.com/46788746/119984205-17639c80-bffc-11eb-9d66-7a420aa77150.jpg)
+
+作業の後には`docker-compose down`をしてください。
