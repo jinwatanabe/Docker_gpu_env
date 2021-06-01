@@ -6,6 +6,7 @@ Docker, gitを利用しています。
 - `notebook/dataset/`.....データセットを保存しているディレクトリ。このディレクトリ下のファイルはGitにPushされません。
 - `notebook/kaggle/`.....Kaggleで利用したNotebookを入れるフォルダです。
 - `notebook/Nishika/`....Nishikaで利用したNotebookを入れるフォルダです。
+- `notebook/Nishika/{コンペ名}/models`....モデルを入れるフォルダ。GitにPushされません。
 #  ライブラリの追加
 
 ライブラリを永続的にインストールする場合、libraries/Dockerfileにインストールするライブラリを追加してください。
