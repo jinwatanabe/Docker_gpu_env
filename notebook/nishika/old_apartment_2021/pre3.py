@@ -72,7 +72,7 @@ def data_pre(df):
     area_df = pd.read_csv("./feature_data/axis_cluster.csv")
     df = pd.merge(df.reset_index(), area_df, on="市区町村名").set_index("ID")
 
-    for col in ["都道府県名", "市区町村名", "地区名", "最寄駅：名称", "間取り", "建物の構造", "用途", "今後の利用目的", "都市計画", "改装", "取引の事情等"]:
-        df[col] = df[col].astype("category")
+#     for col in ["都道府県名", "市区町村名", "地区名", "最寄駅：名称", "間取り", "建物の構造", "用途", "今後の利用目的", "都市計画", "改装", "取引の事情等"]:
+#         df[col] = df[col].astype("category")
  
     return df
