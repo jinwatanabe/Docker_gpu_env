@@ -3,6 +3,27 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import japanize_matplotlib 
 import category_encoders as ce
+from geopy.distance import geodesic
+import json
+
+def area_dis(x):
+    
+    with open('main_area_dict.json', mode='r') as f:
+        main_dict = json.load(f)
+    
+    pref = x["都道府県名"]
+    main_axis = main_dict[pref]
+    ido = x["緯度"]
+    kei = x["経度"]
+    m_ido = main_axis[0]
+    m_kei = main_axis[1]
+    
+    tu = (ido, kei)
+    mtu = (m_ido, m_kei)
+    
+    dis = geodesic(tu, mtu).km
+
+    return dis
 
 
 
@@ -69,9 +90,11 @@ def data_pre(df):
     
     df = df.drop(["場所"], axis=1)
     
+    area_df = pd.read_csv("./feature_data/axis_cluster.csv")
+    df = pd.merge(df.reset_index(), area_df, on="市区町村名").set_index("ID")
     
-    area_mean_df = pd.read_csv('area_mean_df.csv')
-    df = pd.merge(df.reset_index(), area_mean_df, on="市区町村名").set_index('ID')
+    df["都市距離"] = df.apply(lambda x: area_dis(x), axis=1)
+    
 
     for col in ["都道府県名", "市区町村名", "地区名", "最寄駅：名称", "間取り", "建物の構造", "用途", "今後の利用目的", "都市計画", "改装", "取引の事情等"]:
         df[col] = df[col].astype("category")

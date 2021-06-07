@@ -3,8 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import japanize_matplotlib 
 import category_encoders as ce
-
-
+from geopy.distance import geodesic
+import json
 
 def data_pre(df):
     all_null_list = []
@@ -68,7 +68,6 @@ def data_pre(df):
     df = pd.merge(df.reset_index(), area, on="場所").set_index("ID")
     
     df = df.drop(["場所"], axis=1)
-    
     
     area_mean_df = pd.read_csv('area_mean_df.csv')
     df = pd.merge(df.reset_index(), area_mean_df, on="市区町村名").set_index('ID')
