@@ -266,7 +266,7 @@
 # c.NotebookApp.nbserver_extensions = {}
 
 # The directory to use for notebooks and kernels.
-c.NotebookApp.notebook_dir = "/tmp/working"
+c.NotebookApp.notebook_dir = "/home/jovyan"
 
 # Whether to open in a browser after starting. The specific browser used is
 #  platform dependent and determined by the python standard library `webbrowser`

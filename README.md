@@ -1,13 +1,13 @@
 # リポジトリについて
 データ分析をする際に必要なライブラリが用意されたPythonによる環境を提供しています。
 コンテナ内はGPUにも対応しています。
-WSL2, Docker, gitを利用しています。
+WSL2(Ubuntu20.04), Docker, gitを利用しています。
 
 GPUはGTX 1650で確認済みです。
 
 # ディレクトリ
 
-- `notebook/dataset/`.....ここに.ipynbファイルやデータなどを追加します。
+- `notebook/`.....ここに.ipynbファイルやデータなどを追加します。
 
 #  ライブラリの追加
 
@@ -43,3 +43,12 @@ Webブラウザを開き`localhost`にアクセスする。
 以下の記事を参考に設定を行う。
 
 - [待ってました CUDA on WSL 2](https://qiita.com/ksasaki/items/ee864abd74f95fea1efa)
+
+認識しているかの確認は以下のコマンドで行う。
+
+```
+$ docker exec -it jupyter bash
+$ nvidia-smi
+```
+
+また、`/notebook/gpu_test.py`でPyTorchのGPU確認が行える
