@@ -1,9 +1,12 @@
-FROM gcr.io/kaggle-images/python:latest
+FROM jupyter/datascience-notebook
+
+ENV GRANT_SUDO=yes
+USER root
 
 RUN apt-get update
-RUN apt-get install vim -y
+RUN apt-get install -y vim
+RUN pip install \
+		japanize-matplotlib \
+		torch
 
-RUN pip install -U pip && \
-        pip install fastprogress japanize-matplotlib
-
-COPY ./settings/jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
+COPY ./settings/jupyter_notebook_config.py .jupyter
